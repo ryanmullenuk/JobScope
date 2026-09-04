@@ -36,9 +36,9 @@
     context.clearRect(0, 0, width, height);
 
     const background = context.createRadialGradient(width * 0.5, height * 0.38, 0, width * 0.5, height * 0.55, width * 0.8);
-    background.addColorStop(0, "#0a3431");
-    background.addColorStop(0.48, "#052522");
-    background.addColorStop(1, "#021110");
+    background.addColorStop(0, "#181b1f");
+    background.addColorStop(0.48, "#101215");
+    background.addColorStop(1, "#08090b");
     context.fillStyle = background;
     context.fillRect(0, 0, width, height);
 
@@ -54,7 +54,7 @@
     const scanY = horizon + scanProgress * (floor - horizon);
 
     context.lineWidth = 1;
-    context.strokeStyle = "rgba(58, 205, 187, 0.16)";
+    context.strokeStyle = "rgba(255, 255, 255, 0.1)";
     for (let column = 0; column <= columns; column += 1) {
       context.beginPath();
       for (let row = 0; row <= rows; row += 1) {
@@ -71,8 +71,8 @@
       const distance = Math.abs(left.y - scanY);
       const intensity = Math.max(0, 1 - distance / 115);
       context.strokeStyle = intensity > 0
-        ? `rgba(255, 113, 63, ${0.18 + intensity * 0.55})`
-        : "rgba(58, 205, 187, 0.17)";
+        ? `rgba(239, 68, 68, ${0.18 + intensity * 0.55})`
+        : "rgba(255, 255, 255, 0.1)";
       context.lineWidth = intensity > 0 ? 1 + intensity * 1.2 : 1;
       context.beginPath();
       context.moveTo(left.x, left.y);
@@ -82,17 +82,17 @@
 
     const beam = context.createLinearGradient(0, scanY - 82, 0, scanY + 82);
     beam.addColorStop(0, "rgba(255, 113, 63, 0)");
-    beam.addColorStop(0.46, "rgba(255, 113, 63, 0.035)");
-    beam.addColorStop(0.5, "rgba(255, 132, 73, 0.25)");
-    beam.addColorStop(0.54, "rgba(255, 113, 63, 0.035)");
+    beam.addColorStop(0.46, "rgba(220, 38, 38, 0.035)");
+    beam.addColorStop(0.5, "rgba(239, 68, 68, 0.24)");
+    beam.addColorStop(0.54, "rgba(220, 38, 38, 0.035)");
     beam.addColorStop(1, "rgba(255, 113, 63, 0)");
     context.fillStyle = beam;
     context.fillRect(0, scanY - 82, width, 164);
 
     context.save();
-    context.shadowColor = "rgba(255, 107, 52, 0.9)";
+    context.shadowColor = "rgba(220, 38, 38, 0.9)";
     context.shadowBlur = 18;
-    context.strokeStyle = "rgba(255, 132, 73, 0.78)";
+    context.strokeStyle = "rgba(239, 68, 68, 0.78)";
     context.lineWidth = 1.4;
     context.beginPath();
     context.moveTo(0, scanY);
