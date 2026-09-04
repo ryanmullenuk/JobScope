@@ -1,0 +1,106 @@
+:root {
+  color-scheme: dark;
+  --bar: #08090c;
+  --line: rgba(255, 255, 255, 0.11);
+  --text: #f7f7f8;
+  --muted: #9b9da5;
+}
+
+* { box-sizing: border-box; }
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: var(--bar);
+  color: var(--text);
+  font-family: "DM Sans", system-ui, sans-serif;
+}
+
+.tool-page {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 58px minmax(0, 1fr);
+}
+
+.tool-header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 max(18px, env(safe-area-inset-right)) 0 max(18px, env(safe-area-inset-left));
+  border-bottom: 1px solid var(--line);
+  background: rgba(8, 9, 12, 0.96);
+}
+
+.back,
+.tool-name {
+  display: inline-flex;
+  align-items: center;
+}
+
+.back {
+  gap: 8px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.back:hover,
+.back:focus-visible { color: var(--text); }
+.back:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; border-radius: 2px; }
+.back svg { width: 18px; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+.tool-name {
+  gap: 9px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.tool-name::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent);
+}
+
+.frame-wrap {
+  position: relative;
+  min-height: 0;
+  background: #0b0c10;
+}
+
+.loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #fff;
+}
+
+@media (max-width: 520px) {
+  .tool-page { grid-template-rows: 52px minmax(0, 1fr); }
+  .tool-header { padding-inline: 14px; }
+  .back span { display: none; }
+  .tool-name { font-size: 0.7rem; }
+}
