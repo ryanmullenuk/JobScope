@@ -1,0 +1,1 @@
+{"name":"jobscope-techbot-service","version":"1.0.0","private":true,"type":"module","scripts":{"check":"tsc --noEmit","test":"node --test"},"engines":{"node":">=22"},"dependencies":{"@ai-sdk/gateway":"^4.0.74","@types/node":"^26.4.1","ai":"^7.0.92","typescript":"^7.0.2","unpdf":"^1.8.1","zod":"^4.5.4"}}

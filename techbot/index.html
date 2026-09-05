@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#090a0c"><meta name="description" content="JobScope TECH BOT. Field support for telecare, warden call, fire detection and door entry systems, with manufacturer sources.">
+  <title>TECH BOT | JobScope</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="techbot.css"><script src="config.js" defer></script><script src="techbot.js" type="module"></script>
+</head>
+<body>
+  <a class="skip-link" href="#question">Skip to question</a>
+  <header class="tool-header"><a href="/" class="back">← <span>All tools</span></a><span class="tool-label"><i></i> TECH BOT</span></header>
+  <header class="brand-header"><a href="/" class="brand"><span class="brand-mark" aria-hidden="true">J</span> JOBSCOPE</a><div class="header-actions"><button id="library-open" class="quiet-button">Document library</button><button id="helpdesks-open" class="quiet-button">Helpdesks <span aria-hidden="true">↗</span></button></div></header>
+  <main class="workspace">
+    <aside class="intro">
+      <div class="eyebrow"><i></i> ENGINEER SUPPORT</div>
+      <h1>TECH<br><span>BOT.</span></h1>
+      <p class="intro-copy">The right information.<br>When you’re on site.</p>
+      <p class="intro-detail">Ask about a system, find a manual or get help with a fault. Check the source before you act.</p>
+      <div class="scope-list"><span>Warden call & telecare</span><span>Fire detection</span><span>Door entry & access</span></div>
+      <div class="library-stat"><strong id="product-count">—</strong><div>equipment records<br><span id="document-count">Loading source library…</span></div></div>
+      <button id="new-chat" class="new-chat"><span aria-hidden="true">＋</span> New conversation</button>
+      <p class="intro-note">Start with the model number and what you’re seeing on site. Keep resident names and access codes out of the chat.</p>
+    </aside>
+    <section class="chat-panel" aria-label="Ask TECH BOT">
+      <div class="chat-toolbar"><div><span class="eyebrow">FIELD ASSISTANT</span><h2>What do you need to know?</h2></div><span id="service-status" class="status"><i></i> Loading</span></div>
+      <div class="context-row"><label for="manufacturer">Manufacturer</label><select id="manufacturer"><option value="">All manufacturers</option></select><span class="source-first">Sources included</span></div>
+      <div id="conversation" class="conversation" role="log" aria-live="polite" aria-label="Conversation">
+        <div id="welcome" class="welcome"><div class="bot-symbol" aria-hidden="true">✳</div><h3>Let’s find the answer.</h3><p>Include the exact model, the fault message and what you have already checked.</p>
+          <div class="suggestions"><button data-prompt="Find the programming manual for Tynetec Advent XT2">Advent XT2<span>Find a programming manual ↗</span></button><button data-prompt="How do I interconnect an Aico Ei3016 using an Ei3000MRF?">Aico Ei3016<span>Find interconnection guidance ↗</span></button><button data-prompt="Find the resident user guide for Tunstall Communicall Vi IP">Communicall Vi IP<span>Find the correct user guide ↗</span></button><button data-prompt="What is the technical support number for Appello?">Manufacturer support<span>Find a technical helpdesk ↗</span></button></div>
+        </div>
+      </div>
+      <form id="chat-form" class="composer"><label class="sr-only" for="question">Your technical question</label><div class="input-wrap"><textarea id="question" rows="2" maxlength="3000" placeholder="Ask a question. Include the model number…" required></textarea><button type="submit" id="send" aria-label="Send question">↑</button></div><div class="composer-footer"><span id="composer-hint">Checking the document library…</span><span>Enter to send · Shift + Enter for a new line</span></div></form>
+    </section>
+  </main>
+  <dialog id="library-dialog"><div class="dialog-header"><div class="eyebrow">REFERENCE LIBRARY</div><button class="close-dialog" aria-label="Close document library">×</button></div><h2>Find your equipment.</h2><label class="sr-only" for="library-search">Search model or document</label><input id="library-search" type="search" placeholder="Search a model, part number or manufacturer…"><p class="muted" id="library-summary"></p><div id="library-results"></div></dialog>
+  <dialog id="helpdesks-dialog"><div class="dialog-header"><div class="eyebrow">MANUFACTURER SUPPORT</div><button class="close-dialog" aria-label="Close manufacturer support">×</button></div><h2>Speak to the helpdesk.</h2><p class="muted">Have the model number, software version and fault details ready.</p><div id="helpdesk-list"></div></dialog>
+</body></html>
