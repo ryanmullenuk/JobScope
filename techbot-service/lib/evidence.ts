@@ -3,7 +3,7 @@ import catalogue from './catalogue.json' with { type: 'json' };
 import {rankDocuments,tokens} from './search.js';
 export const db=catalogue;
 export type Evidence={id:string,title:string,url:string,manufacturer:string,document_type:string,page?:number,text:string};
-export const domains=['tunstall.co.uk','tynetec.co.uk','aico.co.uk','appello.co.uk','chiptech.uk','chiptech.com','everon.net','careium.com','careium.co.uk','chubb.co.uk','campaigns.chubb.co.uk','paxton-access.com','videxuk.com','came.com'];
+export const domains=['tunstall.co.uk','tynetec.co.uk','aico.co.uk','appello.co.uk','chiptech.uk','chiptech.com','everon.net','careium.com','careium.co.uk','chubb.co.uk','chubbfs.com','campaigns.chubb.co.uk','camedownload.net','paxton-access.com','videxuk.com','came.com'];
 export function official(url:string){try{const u=new URL(url);return u.protocol==='https:'&&!u.username&&!u.password&&(!u.port||u.port==='443')&&domains.some(h=>u.hostname===h||u.hostname.endsWith('.'+h))}catch{return false}}
 const known=new Set(db.documents.map(d=>d.url));const cache=new Map<string,{time:number,pages:string[]}>();
 export async function readPDF(url:string){
